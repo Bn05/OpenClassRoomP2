@@ -3,8 +3,10 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
+import java.util.TreeMap;
 
-public class AnalyticsCounter {
+public class AnalyticsCounter implements IAnalyticsCounter{
     private static int headacheCount = 0;
     private static int rashCount = 0;
     private static int pupilCount = 0;
@@ -37,5 +39,15 @@ public class AnalyticsCounter {
         writer.write("rash: " + rashCount + "\n");
         writer.write("dialated pupils: " + pupilCount + "\n");
         writer.close();
+    }
+
+    public TreeMap<String, Integer> countSymptoms(List<String> symptomsList) {
+        TreeMap<String, Integer> symptomsMap = new TreeMap<>();
+
+        for (String elem : symptomsList) {
+            symptomsMap.putIfAbsent(elem, 0);
+            symptomsMap.put(elem, symptomsMap.get(elem) + 1);
+        }
+        return symptomsMap;
     }
 }
