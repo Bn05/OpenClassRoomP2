@@ -10,11 +10,17 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
     private String filepathIn;
 
+    /**
+     * @param filePathIn String : Path+ nom du fichier ou lire les données. 1 symptomes par ligne.
+     */
     @Override
     public void readSymptomDataFromFile(String filePathIn) {
         this.filepathIn = filePathIn;
     }
 
+    /**
+     * @return List des symptomes présents dans le fichier. Iteration possible.
+     */
     @Override
     public List<String> getSymptoms() {
 
