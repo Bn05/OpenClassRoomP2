@@ -13,11 +13,9 @@ public class App {
         ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile();
         AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 
-        reader.readSymptomDataFromFile(path + fileIn);
+        reader.getSymptoms(path + fileIn);
         analyticsCounter.writeSymptomsToFile(path + fileOut);
 
-        analyticsCounter.writeSymptom(analyticsCounter.countSymptoms(reader.getSymptoms()));
+        analyticsCounter.writeSymptom(analyticsCounter.countSymptoms(reader.readSymptomDataFromFile()));
     }
-
-
 }

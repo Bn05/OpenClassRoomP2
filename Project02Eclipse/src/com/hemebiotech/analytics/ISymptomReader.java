@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ISymptomReader {
 
-    void readSymptomDataFromFile(String filePathIn);
+    void getSymptoms(String filePathIn);
 
-    List<String> getSymptoms();
+    List<String> readSymptomDataFromFile();
 }
